@@ -12,16 +12,11 @@ ITAC - CTF Course TOC
 6. 滲透 (偵查)
 7. 滲透 (後滲透)
 
-(看情況) 密碼學 (基本 RSA) by 陳昱圻教授
-
 ## TOC
 1. Introducing Linux (Environment setup, pre-requirements)
-2. Introducing Reversing (How C is compiled, and other languages.)
-3. Reversing Advanced (Dynamic way, pack/unpack)
-4. Introducing Web & basic web exploitation
-5. Web exploitation & PHP & JavaScript
-6. SSRF & File Upload & Permission misconfiguration
-7. Pentest (Recon)
-8. Pentest (Post exploit)
-
-(optional) Crypto (Basic RSA) by 陳昱圻教授
+2. Introducing Web & basic web exploitation
+3. Web exploitation & PHP & JavaScript
+4. SSRF & File Upload & Permission misconfiguration
+5. Introducing Reversing (How C is compiled, and other languages.)
+6. Pentest (Recon)
+7. Pentest (Post exploit)
