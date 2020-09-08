@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+
+# python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
