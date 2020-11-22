@@ -1,0 +1,100 @@
+version: '3'
+services:      
+  lfi:
+    build: ./lfi/
+    volumes:
+      - ./lfi/www:/var/www/html
+    ports:
+      - "127.0.0.1:8003:80"
+  loginasadmin_basic:
+    build: ./loginasadmin_basic/
+    volumes:
+      - ./loginasadmin_basic/www:/var/www/html
+    ports:
+      - "127.0.0.1:8004:80"
+    networks:
+      loginasadmin:
+        aliases:
+          - basic
+
+  loginasadmin_adv:
+    build: ./loginasadmin_adv/
+    volumes:
+      - ./loginasadmin_adv/www:/var/www/html
+    ports:
+      - "127.0.0.1:8005:80"
+    networks:
+      loginasadmin:
+        aliases:
+          - adv
+
+  loginasadmin_db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: login
+      MYSQL_USER: itac
+      MYSQL_PASSWORD: 174c_v3ry_L0n9_p4ZZW0rd_L0L
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+      - ./loginasadmin_db:/docker-entrypoint-initdb.d
+    networks:
+      loginasadmin:
+        aliases:
+          - db
+  news_app:
+    build: ./news_app/
+    volumes:
+      - ./news_app/www:/var/www/html
+    ports:
+      - "127.0.0.1:8006:80"
+    networks:
+      news:
+        aliases:
+          - db
+
+  news_db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_USER: itac
+      MYSQL_PASSWORD: 174c_v3ry_L0n9_p4ZZW0rd_L0L
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+      - ./news_db:/docker-entrypoint-initdb.d
+    networks:
+      news:
+        aliases:
+          - db
+
+
+networks:
+  loginasadmin:
+  news:
+
+
+  # poop:
+  #   build: ./poop/
+  #   volumes:
+  #     - ./poop/www:/var/www/html
+  #   ports:
+  #     - "5001:80"
+  # cmdinj:
+  #   build: ./cmdinj/
+  #   volumes:
+  #     - ./cmdinj/www:/var/www/html
+  #   ports:
+  #     - "5002:80"
+  # lfi_rce:
+  #   build: ./lfi_rce/
+  #   volumes:
+  #     - ./lfi_rce/www:/var/www/html
+  #   ports:
+  #     - "5003:80"
+  # geegle:
+  #   build: ./gd/
+  #   volumes:
+  #     - ./gd/www:/var/www/html
+  #   ports:
+  #     - "5004:80"
+

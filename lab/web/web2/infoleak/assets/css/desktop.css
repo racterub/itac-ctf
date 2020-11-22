@@ -1,0 +1,6 @@
+/** hide something on mobile devices
+ *  use '.desktop' class to assign what to show only on desktop, defined in main.js
+ */
+#hide{
+  display: none;
+}

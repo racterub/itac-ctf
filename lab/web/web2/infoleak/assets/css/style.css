@@ -1,0 +1,267 @@
+/* Font smoother on OS X */
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-family: 'Noto Sans TC', sans-serif!important;
+}
+
+/* Navbar */
+.navbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  height: 100%;
+  display: table;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+/* Navbar - act1 when on the top, act2 for the rest of condictions */
+.navbar.act1 {
+  padding-top: 30px;
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0);
+}
+.navbar.act2 {
+  padding-top: 9px;
+  height: 85px;
+  background-color: rgba(240, 240, 240, 0.99);
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+/* Navbar - act1's text color */
+nav.act1>div>a, nav.act1>div>div>a{
+  color: rgba(240, 240, 240, 0.6)!important;
+}
+nav.act2 a.mobile {
+  color: rgb(230, 80, 80)!important;
+}
+/* Navbar - act2's text color (2 styles) */
+nav.act2>div>div>a>i{
+  color: rgba(0, 0, 0, 1)!important;
+}
+nav.act2>div>div>a{
+  color: rgba(219, 40, 40, 1)!important;
+}
+
+/* Section1 */
+.section1 {
+  /* Location of the image */
+  background-image: url(../img/home-fit.jpg);
+  /* Image is centered vertically and horizontally at all times */
+  background-position: center center;
+  /* Image doesn't repeat */
+  background-repeat: no-repeat;
+  /* Makes the background image rescale based on its container's size */
+  background-size: cover;
+  /* Background color that will be displayed while the background image is loading */
+  background-color: #060D17;
+  margin: 0;
+  padding: 0;
+  /* Place in back */
+  z-index: -99;
+  transform: translate3d(0,0,0);
+}
+/* Section1 - Background picture's mask(all) */
+.section1:before {
+  content: '';
+  background-color: rgba(0,0,0,0.04);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: -98;
+}
+/* Section1 - Background picture's mask(linear gradient) */
+.section1:after {
+  content: '';
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1)); /* For Safari 5.1 to 6.0 */
+  background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1)); /* For Opera 11.1 to 12.0 */
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1)); /* For Firefox 3.6 to 15 */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)); /* Standard syntax (must be last) */
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: -97;
+}
+.section1-content{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  transform: translate3d(0,0,0);
+}
+.img-itac{
+  width: 13vw;
+}
+.img-icon{
+  width: 20vw;
+}
+.sec1Dropdown{
+  left: -webkit-calc(50% - 25px);
+  left: calc(50% - 25px);
+  -webkit-animation: jumping 1.2s ease 0.2s infinite forwards;
+  -moz-animation: jumping 1.2s ease 0.2s infinite forwards;
+  -o-animation: jumping 1.2s ease 0.2s infinite forwards;
+  animation: jumping 1.2s ease 0.2s infinite forwards;
+}
+/* Section1 - dropdown animation */
+@-moz-keyframes jumping {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  50% {
+    -moz-transform: translateY(0.25em);
+  }
+  100% {
+    -moz-transform: translateY(0);
+  }
+}
+@-webkit-keyframes jumping {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(0.25em);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes jumping {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.25em);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Sections */
+.secContent h1 {
+  line-height: 80px;
+  color: rgb(230, 80, 80);
+}
+.secContent p {
+  /*text-indent: 25px;*/
+  padding-left: 30px;
+  line-height: 35px;
+  font-size: 19px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+/* Sections - do not touch the top */
+.secContent {
+  padding-top: 35px;
+}
+/* Section2 - Background */
+.section2 {
+  color: white;
+  height: 90vh;
+  background-color: #000;
+  background-image: url(../img/icon-opa5.png);
+  background-repeat: no-repeat;
+  background-position: right 80px bottom 80px;
+}
+.section3 {
+  height: 120vh;
+  background-color: #000;
+  color:white;
+}
+.section4 {
+  background-image: -webkit-radial-gradient(rgb(30, 30, 30), rgb(0, 0, 0));
+  background-image:    -moz-radial-gradient(rgb(30, 30, 30), rgb(0, 0, 0));
+  background-image:      -o-radial-gradient(rgb(30, 30, 30), rgb(0, 0, 0));
+  background-image:         radial-gradient(rgb(30, 30, 30), rgb(0, 0, 0));
+}
+/* Section5 - Flexbox vertical & horizontal center */
+.section5 {
+  height: 300px;
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  background-color: #000;
+}
+@media only screen and (max-width: 1200px) {
+  .section3 {
+    height: 1000px;
+  }
+}
+@media only screen and (max-width: 1060px) {
+  .img-itac{
+    width: 23vw;
+  }
+  .img-icon{
+    width: 30vw;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .img-itac{
+    width: 25vw;
+  }
+  .img-icon{
+    width: 33vw;
+  }
+}
+@media only screen and (max-height: 760px) {
+  .section2 {
+    height: 760px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .secContent p {
+    line-height: 30px;
+    font-size: 17px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .img-itac{
+    width: 30vw;
+  }
+  .img-icon{
+    width: 38vw;
+  }
+}
+@media only screen and (max-height: 480px) {
+  .section2 {
+    height: 840px;
+  }
+  .section3 {
+    height: 1200px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .img-itac{
+    width: 33vw;
+  }
+  .img-icon{
+    width: 41vw;
+  }
+}
+@media only screen and (max-width: 485px) {
+  .secContent p {
+    padding-left: 30px;
+    line-height: 25px;
+    font-size: 15px;
+    margin-top: 22px;
+    margin-bottom: 22px;
+  }
+}
